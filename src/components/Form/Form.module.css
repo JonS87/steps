@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  gap: 10px;
+  height: 70px;
+}
+
+.input, .distance {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+}
+
+.input-date, .input-distance, .submit {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.submit {
+  box-sizing: content-box;
+  display: block;
+  padding: 0;
+  width: 80px;
+  align-self: flex-end;
+  margin-bottom: 3px;
+}
