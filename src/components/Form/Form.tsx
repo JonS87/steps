@@ -26,7 +26,7 @@ export const Form: React.FC<FormProps> = ({ addWorkout }) => {
         <input
           className={styles['input-date']}
           id='date'
-          type="text"
+          type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />

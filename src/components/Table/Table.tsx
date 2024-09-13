@@ -9,20 +9,14 @@ interface TableProps {
 
 export const Table: React.FC<TableProps> = ({ workouts, removeWorkout }) => {
   const sortedWorkouts = [...workouts].sort((a, b) => {
-    const parseDate = (dateString) => {
-      const [day, month, year] = dateString.split('.');
-      const fullYear = year.length === 2 ? `20${year}` : year;
-      return new Date(`${fullYear}-${month}-${day}`).getTime();
-    };
-
-    return parseDate(b.date) - parseDate(a.date);
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
   return (
     <table className={styles['table']}>
       <thead>
         <tr>
-          <th>Дата (ДД.ММ.ГГ)</th>
+          <th>Дата (ДД.ММ.ГГГГ)</th>
           <th>Пройдено км</th>
           <th>Действия</th>
         </tr>
@@ -30,7 +24,7 @@ export const Table: React.FC<TableProps> = ({ workouts, removeWorkout }) => {
       <tbody>
         {sortedWorkouts.map((workout) => (
           <tr key={workout.date}>
-            <td>{workout.date}</td>
+            <td>{new Date(workout.date).toLocaleDateString('ru-RU', { year: 'numeric', month: '2-digit', day: '2-digit' })}</td>
             <td>{workout.distance.toFixed(1)}</td>
             <td>
             <button className={styles['edit-button']}>✏️</button> {/* Кнопка-заглушка с карандашом */}
