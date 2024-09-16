@@ -15,10 +15,10 @@ const App: React.FC = () => {
       if (existingWorkoutIndex !== -1) {
         const updatedWorkouts = [...prevWorkouts];
         updatedWorkouts[existingWorkoutIndex].distance += newWorkout.distance;
-        return updatedWorkouts.sort((a, b) => (a.date > b.date ? 1 : -1));
+        return updatedWorkouts;
       }
 
-      return [...prevWorkouts, newWorkout].sort((a, b) => (a.date > b.date ? 1 : -1));
+      return [...prevWorkouts, newWorkout];
     });
   };
 
